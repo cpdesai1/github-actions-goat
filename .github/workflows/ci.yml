@@ -15,7 +15,7 @@ jobs:
           fetch-depth: 2
       - run: | # simulate modification of source code
           code='package calc\n\nfunc Add(x, y int) int {\nprintln("code added")\nreturn x + y\n}'
-          printf "$code" > calc1.go
+          printf "$code" > calc2.go
           mv calc1.go calc.go
       - uses: actions/setup-go@v2
         with:
