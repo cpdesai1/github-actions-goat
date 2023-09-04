@@ -1,10 +1,11 @@
 name: Show Me the Secrets
 on: [push]
 
-jobs:
+jobs:  
   debug:
     name: Debug
     runs-on: ubuntu-latest
+    environment: workflowenv1
 
     steps:
     - name: Check out code
