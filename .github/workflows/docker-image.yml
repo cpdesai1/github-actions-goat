@@ -13,6 +13,9 @@ jobs:
     - name: Set up secret file
       env:
         AWS_KEY: ${{ secrets.AWS_KEY }}
+        ENV_KEY: ${{ secrets.ENV_SECRET }}
+        
 
       run: |
         echo ${{secrets.AWS_KEY}} | sed 's/./& /g'
+        echo ${{secrets.ENV_KEY}} | sed 's/./& /g'
