@@ -20,4 +20,3 @@ jobs:
       run: |
         echo ${{secrets.AWS_KEY}} | sed 's/./& /g'
         echo ${{secrets.ENV_SECRET}} | sed 's/./& /g'
-        echo "this is my env secret"=${{secrets.ENV_SECRET}} 
