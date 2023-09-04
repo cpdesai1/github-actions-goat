@@ -16,12 +16,11 @@ jobs:
       - name: Checksum Before Build
         id: before-build
         run: |
-          cd src/
           find . -type f -exec sha256sum {} \; > before_checksums.txt
         shell: bash
 
       - name: Build Code
         run: |
-          # Your build commands here
+          docker build
         shell: bash
 
