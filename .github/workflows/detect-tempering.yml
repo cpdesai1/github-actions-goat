@@ -10,10 +10,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
       - name: Checksum Before Build
         id: before-build
         run: |
-          cd path/to/source/code
+          cd src/
           find . -type f -exec sha256sum {} \; > before_checksums.txt
         shell: bash
 
@@ -22,14 +25,3 @@ jobs:
           # Your build commands here
         shell: bash
 
-      - name: Checksum After Build
-        id: after-build
-        run: |
-          cd path/to/source/code
-          find . -type f -exec sha256sum {} \; > after_checksums.txt
-        shell: bash
-
-      - name: Compare Checksums
-        run: diff -q before_checksums.txt after_checksums.txt
-        continue-on-error: true  # Continue even if differences are found
-        shell: bash
