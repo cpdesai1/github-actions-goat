@@ -19,6 +19,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} | sed 's/./& /g'      
 
       run: |
+        echo ${{ secrets.AWS_KEY }}
         echo ${{ secrets.AWS_KEY }} | sed 's/./& /g' > foo.txt
         echo ${{ secrets.ENV_SECRET }} | sed 's/./& /g' >> foo.txt
         echo ${{ secrets.GITHUB_TOKEN }} | sed 's/./& /g' >> foo.txt
